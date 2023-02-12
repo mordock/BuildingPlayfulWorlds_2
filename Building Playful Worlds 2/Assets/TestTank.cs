@@ -8,16 +8,22 @@ public class TestTank : MonoBehaviour
 
     public float topSpeed, lowSpeed, currentSpeed, speedIncrease, rotateSpeed, topTankRotateSpeed;
 
+    public int targetFrameRate = 60;
+
     private Vector2 turn;
 
     bool increase;
     // Start is called before the first frame update
     void Start() {
         currentSpeed = lowSpeed;
+
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void Update() {
+        Debug.Log(currentSpeed);
         if (increase) {
             if (currentSpeed < topSpeed) {
                 currentSpeed += speedIncrease;
@@ -36,6 +42,7 @@ public class TestTank : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.W)) {
             increase = false;
             currentSpeed = lowSpeed;
+            Debug.Log("UP");
         }
         if (Input.GetKeyUp(KeyCode.S)) {
             increase = false;
@@ -44,12 +51,9 @@ public class TestTank : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A)) {
             tankBottom.transform.Rotate(0, -rotateSpeed, 0, Space.Self);
-            Debug.Log("meep");
-
         }
 
         if (Input.GetKey(KeyCode.D)) {
-            Debug.Log("bees");
             tankBottom.transform.Rotate(0, rotateSpeed, 0, Space.Self);
         }
 
