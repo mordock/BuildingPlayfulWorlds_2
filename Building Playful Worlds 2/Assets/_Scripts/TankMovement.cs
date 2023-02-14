@@ -15,7 +15,7 @@ public class TankMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         currentSpeed = startSpeed;
- 
+
         foreach (ParticleSystem particle in particlesOnDrive) {
             particle.Stop();
         }
@@ -57,7 +57,7 @@ public class TankMovement : MonoBehaviour
     }
 
     void ActivateParticles() {
-        foreach(ParticleSystem particle in particlesOnDrive) {
+        foreach (ParticleSystem particle in particlesOnDrive) {
             particle.Emit(1);
             particle.Play();
         }
@@ -68,6 +68,11 @@ public class TankMovement : MonoBehaviour
         increase = true;
 
         ActivateParticles();
+
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (!audioSource.isPlaying) {
+            GetComponent<AudioSource>().Play();
+        }
     }
 
     void StopDrive() {
@@ -77,5 +82,7 @@ public class TankMovement : MonoBehaviour
         foreach (ParticleSystem particle in particlesOnDrive) {
             particle.Stop();
         }
+
+        GetComponent<AudioSource>().Stop();
     }
 }
