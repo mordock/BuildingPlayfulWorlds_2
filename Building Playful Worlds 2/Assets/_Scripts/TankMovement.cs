@@ -58,6 +58,7 @@ public class TankMovement : MonoBehaviour
 
     void ActivateParticles() {
         foreach(ParticleSystem particle in particlesOnDrive) {
+            particle.Emit(1);
             particle.Play();
         }
     }
