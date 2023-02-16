@@ -9,6 +9,9 @@ public class TankMovement : MonoBehaviour
 
     public float topSpeed, startSpeed, currentSpeed, speedIncrease, tankRotateSpeed, topTankRotateSpeed;
 
+    [Header("use when UI is open")]
+    public bool canDrive;
+
     private Vector2 turn;
 
     private bool increase;

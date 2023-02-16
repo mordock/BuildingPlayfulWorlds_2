@@ -150,8 +150,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351339186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.76, y: 5.46, z: -10.79}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalPosition: {x: 18.76, y: 2.5, z: -10.79}
+  m_LocalScale: {x: 10, y: 4.988, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1814659716}
@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 1216064258}
   - component: {fileID: 1216064259}
   - component: {fileID: 1216064260}
+  - component: {fileID: 1216064261}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameController
@@ -597,6 +598,18 @@ MonoBehaviour:
   startObjects: {fileID: 777712103}
   endObjects: {fileID: 488313234}
   currentstate: 0
+--- !u!114 &1216064261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216064257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd97206b1994a84398ccdd3bbe446e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &1329120696 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3463434276264643002, guid: 18f70eb7550685347b5933ebfc4115be, type: 3}
@@ -679,7 +692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420848048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -24.8}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
