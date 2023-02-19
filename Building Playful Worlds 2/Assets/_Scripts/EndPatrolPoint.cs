@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class EndPatrolPoint : MonoBehaviour
 {
+    public bool retreating;
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Start() {
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag.Equals("Player")) {
-            Debug.Log(other.gameObject);
-            GameObject.Find("GameManager").GetComponent<Statemanager>().ChangeToEndState();
+            if (retreating) {
+
+            } else {
+                GameObject.Find("GameManager").GetComponent<Statemanager>().ChangeToEndState();
+            }
         }
     }
 }

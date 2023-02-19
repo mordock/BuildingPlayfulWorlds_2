@@ -10,4 +10,6 @@ public class Conversation : ScriptableObject
     public string speakerName;
     [TextArea]
     public string textEnglish;
+
+    public AudioClip audioFragmant;
 }
