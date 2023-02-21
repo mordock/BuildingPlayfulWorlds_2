@@ -18,7 +18,7 @@ public class EndPatrolPoint : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag.Equals("Player")) {
             if (retreating) {
-
+                GameObject.Find("GameManager").GetComponent<Statemanager>().StartEndPart();
             } else {
                 GameObject.Find("GameManager").GetComponent<Statemanager>().ChangeToEndState();
             }

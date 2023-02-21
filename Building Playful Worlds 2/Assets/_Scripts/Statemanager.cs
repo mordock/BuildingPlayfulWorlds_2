@@ -102,4 +102,9 @@ public class Statemanager : MonoBehaviour
             mainCam.transform.eulerAngles.z
         );
     }
+
+    public void StartEndPart() {
+        GetComponent<FadeManager>().fadeToBlackAndBack(2.5f, 1, 1);
+        Camera.main.gameObject.GetComponent<CameraScript>().MoveTowardsPlayer();
+    }
 }

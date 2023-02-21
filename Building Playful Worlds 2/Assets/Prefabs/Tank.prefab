@@ -169,11 +169,11 @@ MonoBehaviour:
   - {fileID: 3463434275056732017}
   - {fileID: 3463434276264643002}
   - {fileID: 1478529108097007744}
-  topSpeed: 10
-  startSpeed: 2
+  topSpeed: 12
+  startSpeed: 3
   currentSpeed: 0
-  speedIncrease: 0.05
-  tankRotateSpeed: 0.5
+  speedIncrease: 0.06
+  tankRotateSpeed: 0.55
   topTankRotateSpeed: 1
   canDrive: 0
 --- !u!82 &7911079672489899434
@@ -188,7 +188,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 95920d4bf42e9c34dae191b61534c556, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
