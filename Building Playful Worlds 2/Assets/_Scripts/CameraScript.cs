@@ -25,15 +25,12 @@ public class CameraScript : MonoBehaviour
         if (moveToPlayer) {
             float step = cameraMoveSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, tank.transform.position, step);
-            Debug.Log("tank" + tank.transform.position);
-            Debug.Log("cam" + transform.position);
         } else {
             if (!setReturnOffset) {
                 transform.position = new Vector3(tank.transform.position.x, transform.position.y, tank.transform.position.z) + offset;
             } else {
                 transform.position = new Vector3(tank.transform.position.x, transform.position.y, tank.transform.position.z) + returnOffset;
             }
-            Debug.Log("MOP");
         }
     }
 

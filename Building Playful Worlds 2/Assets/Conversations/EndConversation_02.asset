@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cf6a23deffefd746b51ad5f5e7335f3, type: 3}
-  m_Name: AfterCinematic
+  m_Name: EndConversation_02
   m_EditorClassIdentifier: 
-  id: 2
+  id: 4
   image: {fileID: 0}
-  speakerName: Hoffmann(Over Radio)
-  textEnglish: The attack is here! The British are landing, come back at once!
+  speakerName: You(letter)
+  textEnglish: I have fought long and hard for you, to see your faces again.
   audioFragmant: {fileID: 0}

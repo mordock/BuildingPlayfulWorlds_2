@@ -13,9 +13,9 @@ public class Statemanager : MonoBehaviour
 
     public worldState currentstate = worldState.startState;
 
-    public delegate void StartPlaneDelegate();
+    public delegate void MethodToCall();
 
-    public StartPlaneDelegate m_startPlaneDelegate;
+    public MethodToCall m_methodToCall;
 
     [Header("Plane cinematic values")]
     public GameObject planeGroupObject;
@@ -30,6 +30,9 @@ public class Statemanager : MonoBehaviour
     private float currentExplosionTimer;
     private float randomExplosionTimer;
 
+    [Header("End cinematic values")]
+    public GameObject endCinematicCam;
+
     private void Awake() {
         foreach (Transform explosion in explosionObject.transform) {
             explosionParticles.Add(explosion.gameObject);
@@ -39,7 +42,7 @@ public class Statemanager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        m_startPlaneDelegate = StartPlaneCinematic;
+        m_methodToCall = StartPlaneCinematic;
 
         startObjects.SetActive(true);
         endObjects.SetActive(false);
@@ -69,16 +72,16 @@ public class Statemanager : MonoBehaviour
 
         GetComponent<FadeManager>().fadeToBlackAndBack(1, 1, 1);
 
-        StartCoroutine(DoMethodAfterSeconds(2, m_startPlaneDelegate));
+        StartCoroutine(DoMethodAfterSeconds(2, m_methodToCall));
 
         //switch to different objects
         startObjects.SetActive(false);
         endObjects.SetActive(true);
     }
 
-    IEnumerator DoMethodAfterSeconds(int secs, StartPlaneDelegate startPlane) {
+    IEnumerator DoMethodAfterSeconds(int secs, MethodToCall currentMethod) {
         yield return new WaitForSeconds(secs);
-        startPlane();
+        currentMethod();
     }
 
     private void StartPlaneCinematic() {
@@ -106,5 +109,15 @@ public class Statemanager : MonoBehaviour
     public void StartEndPart() {
         GetComponent<FadeManager>().fadeToBlackAndBack(2.5f, 1, 1);
         Camera.main.gameObject.GetComponent<CameraScript>().MoveTowardsPlayer();
+
+        m_methodToCall = StartEndCinematic;
+        StartCoroutine(DoMethodAfterSeconds(3, m_methodToCall));
+    }
+
+    private void StartEndCinematic() {
+        Camera.main.gameObject.SetActive(false);
+        endCinematicCam.SetActive(true);
+
+        GetComponent<EndCinematicManager>().endCinematicStarted = true;
     }
 }
