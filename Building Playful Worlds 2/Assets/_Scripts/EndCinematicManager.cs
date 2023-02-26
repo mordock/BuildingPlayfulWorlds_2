@@ -45,14 +45,14 @@ public class EndCinematicManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
                 endPanel.SetActive(true);
                 endPanel.transform.GetChild(0).gameObject.SetActive(true);
-                endPanel.transform.GetChild(1).gameObject.SetActive(true);
+                endPanel.transform.GetChild(1).gameObject.SetActive(false);
                 gameEnd = true;
             }
 
             if (Input.GetKeyDown(KeyCode.Alpha2)) {
                 endPanel.SetActive(true);
                 endPanel.transform.GetChild(1).gameObject.SetActive(true);
-                endPanel.transform.GetChild(0).gameObject.SetActive(true);
+                endPanel.transform.GetChild(0).gameObject.SetActive(false);
                 gameEnd = true;
             }
         }

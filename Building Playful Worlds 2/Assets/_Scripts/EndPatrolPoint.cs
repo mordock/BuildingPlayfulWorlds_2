@@ -5,6 +5,8 @@ using UnityEngine;
 public class EndPatrolPoint : MonoBehaviour
 {
     public bool retreating;
+
+    private bool triggered = false;
     // Start is called before the first frame update
     void Start() {
 
@@ -16,11 +18,14 @@ public class EndPatrolPoint : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag.Equals("Player")) {
-            if (retreating) {
-                GameObject.Find("GameManager").GetComponent<Statemanager>().StartEndPart();
-            } else {
-                GameObject.Find("GameManager").GetComponent<Statemanager>().ChangeToEndState();
+        if (!triggered) {
+            if (other.gameObject.tag.Equals("Player")) {
+                if (retreating) {
+                    GameObject.Find("GameManager").GetComponent<Statemanager>().StartEndPart();
+                } else {
+                    GameObject.Find("GameManager").GetComponent<Statemanager>().ChangeToEndState();
+                }
+                triggered = true;
             }
         }
     }

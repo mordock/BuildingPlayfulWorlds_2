@@ -44,11 +44,12 @@ public class Statemanager : MonoBehaviour
     void Start() {
         m_methodToCall = StartPlaneCinematic;
 
-        startObjects.SetActive(true);
-        endObjects.SetActive(false);
         planeGroupObject.SetActive(false);
 
         randomExplosionTimer = Random.Range(lowExplosionTimer, highExplosionTimer);
+
+        startObjects.SetActive(true);
+        endObjects.SetActive(false);
     }
 
     // Update is called once per frame
@@ -73,10 +74,6 @@ public class Statemanager : MonoBehaviour
         GetComponent<FadeManager>().fadeToBlackAndBack(1, 1, 1);
 
         StartCoroutine(DoMethodAfterSeconds(2, m_methodToCall));
-
-        //switch to different objects
-        startObjects.SetActive(false);
-        endObjects.SetActive(true);
     }
 
     IEnumerator DoMethodAfterSeconds(int secs, MethodToCall currentMethod) {
@@ -98,17 +95,17 @@ public class Statemanager : MonoBehaviour
         //change camera for after cinematic
         GameObject mainCam = Camera.main.gameObject;
 
-        mainCam.GetComponent<CameraScript>().setReturnOffset = true;
-        mainCam.transform.eulerAngles = new Vector3(
-            mainCam.transform.eulerAngles.x,
-            mainCam.transform.eulerAngles.y + 180,
-            mainCam.transform.eulerAngles.z
-        );
+        //mainCam.GetComponent<CameraScript>().setReturnOffset = true;
+        //mainCam.transform.eulerAngles = new Vector3(
+        //    mainCam.transform.eulerAngles.x,
+        //    mainCam.transform.eulerAngles.y + 180,
+        //    mainCam.transform.eulerAngles.z
+        //);
     }
 
     public void StartEndPart() {
         GetComponent<FadeManager>().fadeToBlackAndBack(2.5f, 1, 1);
-        Camera.main.gameObject.GetComponent<CameraScript>().MoveTowardsPlayer();
+        //Camera.main.gameObject.GetComponent<CameraScript>().MoveTowardsPlayer();
 
         m_methodToCall = StartEndCinematic;
         StartCoroutine(DoMethodAfterSeconds(3, m_methodToCall));
@@ -119,5 +116,11 @@ public class Statemanager : MonoBehaviour
         endCinematicCam.SetActive(true);
 
         GetComponent<EndCinematicManager>().endCinematicStarted = true;
+    }
+
+    public void SetEndObjects() {
+        //switch to different objects
+        startObjects.SetActive(false);
+        endObjects.SetActive(true);
     }
 }

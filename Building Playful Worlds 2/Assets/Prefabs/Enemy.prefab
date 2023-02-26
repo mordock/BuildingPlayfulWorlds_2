@@ -91,6 +91,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e45a06fd08b66044b5f282ec71f6ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shell: {fileID: 752779580006123957, guid: cc3228f08ed76d94c85ce5b1d964e537, type: 3}
+  shootPoint: {fileID: 1141488288}
+  testBoom: {fileID: 7580538902909202299, guid: 9a2e0227b0b586740a9e66f11473690b, type: 3}
+  minShootTime: 3
+  maxShootTime: 6
+  playerShootRange: 60
 --- !u!1 &6982260001764418521
 GameObject:
   m_ObjectHideFlags: 0

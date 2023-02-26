@@ -11,6 +11,7 @@ public class AfterCinematic : MonoBehaviour
 
         gameManager.GetComponent<ConversationManager>().StartConversation(2);
         gameManager.GetComponent<ToDoManager>().UpdateToDo("- Return to your base - \n Maneuver through the broken town");
+        gameManager.GetComponent<Statemanager>().SetEndObjects();
     }
 
     // Update is called once per frame
