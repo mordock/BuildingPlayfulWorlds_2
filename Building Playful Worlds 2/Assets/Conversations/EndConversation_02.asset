@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EndConversation_02
   m_EditorClassIdentifier: 
   id: 4
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: ab6f9d60c1009c7499f1dbe7f95467d7, type: 3}
   speakerName: You(letter)
   textEnglish: I have fought long and hard for you, to see your faces again.
   audioFragmant: {fileID: 0}

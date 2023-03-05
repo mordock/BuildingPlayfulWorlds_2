@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EndConversation_03
   m_EditorClassIdentifier: 
   id: 5
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: ab6f9d60c1009c7499f1dbe7f95467d7, type: 3}
   speakerName: You(letter)
   textEnglish: I will most likely not make it out here alive.
   audioFragmant: {fileID: 0}

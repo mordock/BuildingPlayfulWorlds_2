@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EndConversation_06
   m_EditorClassIdentifier: 
   id: 8
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: ab6f9d60c1009c7499f1dbe7f95467d7, type: 3}
   speakerName: You(letter)
   textEnglish: Your grateful husband and father
   audioFragmant: {fileID: 0}

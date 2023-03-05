@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Statemanager : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class Statemanager : MonoBehaviour
     public GameObject endCinematicCam;
 
     private void Awake() {
+        //LightmapSettings.lightmaps = startData;
+
         foreach (Transform explosion in explosionObject.transform) {
             explosionParticles.Add(explosion.gameObject);
             explosion.gameObject.SetActive(false);
@@ -50,6 +53,8 @@ public class Statemanager : MonoBehaviour
 
         startObjects.SetActive(true);
         endObjects.SetActive(false);
+
+        
     }
 
     // Update is called once per frame
@@ -92,8 +97,10 @@ public class Statemanager : MonoBehaviour
         source.loop = false;
         source.Play();
 
+        m_methodToCall = SetEndObjects;
+        StartCoroutine(DoMethodAfterSeconds(8, m_methodToCall));
         //change camera for after cinematic
-        GameObject mainCam = Camera.main.gameObject;
+        //GameObject mainCam = Camera.main.gameObject;
 
         //mainCam.GetComponent<CameraScript>().setReturnOffset = true;
         //mainCam.transform.eulerAngles = new Vector3(

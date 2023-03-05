@@ -6,7 +6,7 @@ using UnityEngine;
 public class Conversation : ScriptableObject
 {
     public int id;
-    public Texture image;
+    public Sprite image;
     public string speakerName;
     [TextArea]
     public string textEnglish;

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Intro
   m_EditorClassIdentifier: 
   id: 1
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: eb9af89aa5ca5e444ae551bc1680c069, type: 3}
   speakerName: Sergeant Hoffmann
   textEnglish: 'Soldier, paratroopers have been sighted around this area, go patrol
     the city. '
+  audioFragmant: {fileID: 0}

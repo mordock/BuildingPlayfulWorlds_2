@@ -6,9 +6,14 @@ using TMPro;
 public class ToDoManager : MonoBehaviour
 {
     public GameObject toDoUI;
+    public bool isAfterCinematic;
     // Start is called before the first frame update
     void Start() {
-        UpdateToDo("- Follow the road - \n Patrol the town");
+        if (!isAfterCinematic) {
+            UpdateToDo("- Follow the road - \n Patrol the town");
+        } else {
+            UpdateToDo("- Return to your base - \n Maneuver through the broken town");
+        }
     }
 
     // Update is called once per frame

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AfterCinematic
   m_EditorClassIdentifier: 
   id: 2
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: eb9af89aa5ca5e444ae551bc1680c069, type: 3}
   speakerName: Hoffmann(Over Radio)
   textEnglish: The attack is here! The British are landing, come back at once!
   audioFragmant: {fileID: 0}

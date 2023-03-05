@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ConversationManager : MonoBehaviour
 {
+    public bool isAfterCinematic;
     public List<Conversation> conversations;
     public GameObject conversationUI;
     public GameObject audioPlayer;
@@ -16,7 +18,11 @@ public class ConversationManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<TankMovement>();
         conversationIsOpen = false;
         conversationUI.SetActive(false);
-        StartConversation(1);
+        if (!isAfterCinematic) {
+            StartConversation(1);
+        } else {
+            StartConversation(2);
+        }
     }
 
     // Update is called once per frame
@@ -50,6 +56,7 @@ public class ConversationManager : MonoBehaviour
 
         conversationUI.SetActive(true);
 
+        conversationUI.transform.GetChild(0).GetComponent<Image>().sprite = conversationToPlay.image;
         conversationUI.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = conversationToPlay.speakerName;
         conversationUI.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = conversationToPlay.textEnglish;
     }
