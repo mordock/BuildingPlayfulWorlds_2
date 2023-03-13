@@ -97,6 +97,7 @@ MonoBehaviour:
   minShootTime: 3
   maxShootTime: 6
   playerShootRange: 60
+  spotDistance: 50
 --- !u!1 &6982260001764418521
 GameObject:
   m_ObjectHideFlags: 0

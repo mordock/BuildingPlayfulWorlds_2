@@ -6,7 +6,7 @@ public class EnemyLogic : MonoBehaviour
 {
     public GameObject shell, shootPoint, testBoom;
 
-    public float minShootTime, maxShootTime, playerShootRange;
+    public float minShootTime, maxShootTime, playerShootRange, spotDistance;
 
     private float shootTime;
     private float timePassed = 0;
@@ -29,31 +29,33 @@ public class EnemyLogic : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (Vector3.Distance(transform.position, player.transform.position) <= 50) {
-            timePassed += Time.deltaTime;
-            if (moveTurret) {
-                tankTop.transform.LookAt(player.transform, Vector3.up);
-                tankTop.transform.Rotate(0, 180, 0);
-            }
-
-            if (timePassed > shootTime) {
-                Shoot();
-                timePassed = 0;
-            }
-
-            if (timePassed > shootTime - 1) {
-                moveTurret = false;
-                if (!hasOldPlayerPos) {
-                    oldPlayerPos = player.transform;
-                    hasOldPlayerPos = true;
+        if (player != null) {
+            if (Vector3.Distance(transform.position, player.transform.position) <= spotDistance) {
+                timePassed += Time.deltaTime;
+                if (moveTurret) {
+                    tankTop.transform.LookAt(player.transform, Vector3.up);
+                    tankTop.transform.Rotate(0, 180, 0);
                 }
-            }
 
-            if (timePassed < .5f) {
-                moveTurret = false;
-            }
-            if (timePassed >= 0.5f && timePassed <= shootTime - 1) {
-                moveTurret = true;
+                if (timePassed > shootTime) {
+                    Shoot();
+                    timePassed = 0;
+                }
+
+                if (timePassed > shootTime - 1) {
+                    moveTurret = false;
+                    if (!hasOldPlayerPos) {
+                        oldPlayerPos = player.transform;
+                        hasOldPlayerPos = true;
+                    }
+                }
+
+                if (timePassed < .5f) {
+                    moveTurret = false;
+                }
+                if (timePassed >= 0.5f && timePassed <= shootTime - 1) {
+                    moveTurret = true;
+                }
             }
         }
     }

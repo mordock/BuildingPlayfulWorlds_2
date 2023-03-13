@@ -21,6 +21,7 @@ public class Statemanager : MonoBehaviour
     [Header("Plane cinematic values")]
     public GameObject planeGroupObject;
     public GameObject explosionObject;
+    public GameObject shaderObject;
     public int lowExplosionTimer;
     public int highExplosionTimer;
     public AudioClip planesClip;
@@ -90,6 +91,7 @@ public class Statemanager : MonoBehaviour
         planeGroupObject.SetActive(true);
         startExplosions = true;
         timeline.SetActive(true);
+        shaderObject.SetActive(false);
 
         //play flying planes sound
         AudioSource source = GameObject.Find("AudioPlayer").GetComponent<AudioSource>();
@@ -99,20 +101,10 @@ public class Statemanager : MonoBehaviour
 
         m_methodToCall = SetEndObjects;
         StartCoroutine(DoMethodAfterSeconds(8, m_methodToCall));
-        //change camera for after cinematic
-        //GameObject mainCam = Camera.main.gameObject;
-
-        //mainCam.GetComponent<CameraScript>().setReturnOffset = true;
-        //mainCam.transform.eulerAngles = new Vector3(
-        //    mainCam.transform.eulerAngles.x,
-        //    mainCam.transform.eulerAngles.y + 180,
-        //    mainCam.transform.eulerAngles.z
-        //);
     }
 
     public void StartEndPart() {
         GetComponent<FadeManager>().fadeToBlackAndBack(2.5f, 1, 1);
-        //Camera.main.gameObject.GetComponent<CameraScript>().MoveTowardsPlayer();
 
         m_methodToCall = StartEndCinematic;
         StartCoroutine(DoMethodAfterSeconds(3, m_methodToCall));
