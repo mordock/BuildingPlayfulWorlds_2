@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class EnemyLogic : MonoBehaviour
 {
-    public GameObject shell, shootPoint, testBoom;
+    public GameObject shell, shootPoint, shootEffect;
+    public AudioClip shootSound;
 
     public float minShootTime, maxShootTime, playerShootRange, spotDistance;
 
@@ -62,7 +64,11 @@ public class EnemyLogic : MonoBehaviour
 
     public void Shoot() {
         shootTime = Random.Range(minShootTime, maxShootTime);
-        Instantiate(testBoom, shootPoint.transform);
+
+        shootEffect.GetComponent<VisualEffect>().Play();
+        AudioSource source = GetComponent<AudioSource>();
+        source.clip = shootSound;
+        source.Play();
 
         GameObject currentShell = Instantiate(shell);
         currentShell.transform.position = shootPoint.transform.position;
