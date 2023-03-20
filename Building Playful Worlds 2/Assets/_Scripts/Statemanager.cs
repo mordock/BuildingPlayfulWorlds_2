@@ -24,7 +24,7 @@ public class Statemanager : MonoBehaviour
     public GameObject shaderObject;
     public int lowExplosionTimer;
     public int highExplosionTimer;
-    public AudioClip planesClip;
+    public AudioClip planesClip, bombardmentClip;
     public GameObject timeline;
 
     private List<GameObject> explosionParticles = new List<GameObject>();
@@ -95,9 +95,11 @@ public class Statemanager : MonoBehaviour
 
         //play flying planes sound
         AudioSource source = GameObject.Find("AudioPlayer").GetComponent<AudioSource>();
-        source.clip = planesClip;
+        //source.clip = planesClip;
+        source.PlayOneShot(planesClip);
+        source.PlayOneShot(bombardmentClip);
         source.loop = false;
-        source.Play();
+        //source.Play();
 
         m_methodToCall = SetEndObjects;
         StartCoroutine(DoMethodAfterSeconds(8, m_methodToCall));
