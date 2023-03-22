@@ -40070,9 +40070,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 483336847303677874, guid: fbc82c2c1745c7f4d9e7590e20f5e0dd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 483336847303677875, guid: fbc82c2c1745c7f4d9e7590e20f5e0dd, type: 3}
       propertyPath: m_Name
       value: ShootEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 483336847303677875, guid: fbc82c2c1745c7f4d9e7590e20f5e0dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 483336847303677884, guid: fbc82c2c1745c7f4d9e7590e20f5e0dd, type: 3}
       propertyPath: m_RootOrder

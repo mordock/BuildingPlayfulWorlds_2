@@ -98,7 +98,6 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 6a12b301d61ea954a9f1f0ce929cd200, type: 3}
   minShootTime: 3
   maxShootTime: 6
-  playerShootRange: 60
   spotDistance: 50
 --- !u!82 &1653227259
 AudioSource:

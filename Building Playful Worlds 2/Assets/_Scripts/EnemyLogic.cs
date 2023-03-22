@@ -8,7 +8,7 @@ public class EnemyLogic : MonoBehaviour
     public GameObject shell, shootPoint, shootEffect;
     public AudioClip shootSound;
 
-    public float minShootTime, maxShootTime, playerShootRange, spotDistance;
+    public float minShootTime, maxShootTime, spotDistance;
 
     private float shootTime;
     private float timePassed = 0;
@@ -24,7 +24,7 @@ public class EnemyLogic : MonoBehaviour
         shootTime = Random.Range(minShootTime, maxShootTime);
         tankTop = transform.GetChild(0).gameObject;
         player = GameObject.Find("Tank");
-
+        Debug.Log(tankTop);
         moveTurret = true;
         hasOldPlayerPos = false;
     }
@@ -33,6 +33,7 @@ public class EnemyLogic : MonoBehaviour
     void Update() {
         if (player != null) {
             if (Vector3.Distance(transform.position, player.transform.position) <= spotDistance) {
+                moveTurret = true;
                 timePassed += Time.deltaTime;
                 if (moveTurret) {
                     tankTop.transform.LookAt(player.transform, Vector3.up);
@@ -45,6 +46,7 @@ public class EnemyLogic : MonoBehaviour
                 }
 
                 if (timePassed > shootTime - 1) {
+                    Debug.Log("MOP3");
                     moveTurret = false;
                     if (!hasOldPlayerPos) {
                         oldPlayerPos = player.transform;
@@ -53,9 +55,12 @@ public class EnemyLogic : MonoBehaviour
                 }
 
                 if (timePassed < .5f) {
+                    Debug.Log("MOP1");
+
                     moveTurret = false;
                 }
                 if (timePassed >= 0.5f && timePassed <= shootTime - 1) {
+                    Debug.Log("MOP2");
                     moveTurret = true;
                 }
             }
