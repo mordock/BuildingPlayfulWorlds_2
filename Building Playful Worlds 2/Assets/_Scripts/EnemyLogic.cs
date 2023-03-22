@@ -24,7 +24,6 @@ public class EnemyLogic : MonoBehaviour
         shootTime = Random.Range(minShootTime, maxShootTime);
         tankTop = transform.GetChild(0).gameObject;
         player = GameObject.Find("Tank");
-        Debug.Log(tankTop);
         moveTurret = true;
         hasOldPlayerPos = false;
     }
@@ -32,8 +31,8 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (player != null) {
+            //check if player is close enough
             if (Vector3.Distance(transform.position, player.transform.position) <= spotDistance) {
-                moveTurret = true;
                 timePassed += Time.deltaTime;
                 if (moveTurret) {
                     tankTop.transform.LookAt(player.transform, Vector3.up);
@@ -45,8 +44,8 @@ public class EnemyLogic : MonoBehaviour
                     timePassed = 0;
                 }
 
+                //stop moving turret a little before shooting, otherwise unfair to player
                 if (timePassed > shootTime - 1) {
-                    Debug.Log("MOP3");
                     moveTurret = false;
                     if (!hasOldPlayerPos) {
                         oldPlayerPos = player.transform;
@@ -55,12 +54,11 @@ public class EnemyLogic : MonoBehaviour
                 }
 
                 if (timePassed < .5f) {
-                    Debug.Log("MOP1");
-
                     moveTurret = false;
                 }
+
+                //start moving turret again
                 if (timePassed >= 0.5f && timePassed <= shootTime - 1) {
-                    Debug.Log("MOP2");
                     moveTurret = true;
                 }
             }
